@@ -1,0 +1,62 @@
+.contact-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 13px;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+	.flex-row {
+		align-items: flex-end;
+		@include media($md) {
+			flex-wrap: wrap;
+		}
+	}
+  .flex-col {
+		width: 29%;
+		padding: 0;
+		position: relative;
+		@include media($md) {
+			width: 49%;
+		}
+		&:not(:last-child) {
+			margin-right: auto;
+			&::after {
+				content: '';
+				height: 14px;
+				width: 1px;
+				background: #53535c;
+				position: absolute;
+				bottom: 2px;
+				right: 0;
+			}
+		}
+    img {
+      width: 15px;
+      height: 15px;
+      object-fit: contain;
+    }
+    a {
+			font-family: 'ProximaNova-Light';
+      font-size: 14px;
+      color: #ffffff;
+			font-weight: 100;
+			opacity: .7;
+			transition: .2s;
+			&:not(:last-child) {
+				margin-right: 5px;
+			}
+			&:hover {
+				opacity: 1;
+			}
+    }
+  }
+}

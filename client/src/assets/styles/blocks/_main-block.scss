@@ -1,0 +1,53 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  background: url('assets/img/bg-image.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  max-height: -webkit-fill-available;
+  &__content {
+    margin: auto 0;
+    @include media($smd) {
+      margin: 0 0 auto 0;
+      max-height: calc(100vh - 147px);
+      overflow-y: auto;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &__pager {
+    width: 59px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    @include media($smd) {
+      display: none;
+    }
+    li {
+      a {
+        font-family: $font-second-regular;
+        font-size: 20px;
+        color: #fff;
+        opacity: 0.6;
+        transition: 0.2s;
+        &:hover {
+          opacity: 1;
+        }
+        &.active {
+          font-size: 40px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

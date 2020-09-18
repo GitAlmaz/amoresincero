@@ -1,0 +1,68 @@
+.service-card {
+  width: 100%;
+  max-height: 70vh;
+	min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    138deg,
+    rgba(15, 15, 22, 0.8) 0%,
+    rgba(52, 54, 66, 0.4) 100%
+  );
+  border-radius: 10px;
+  padding: 51px 22px;
+  overflow-y: auto;
+  @include media($md) {
+    overflow-y: visible;
+    max-height: none;
+    min-height: auto;
+  }
+  @include media($smd) {
+    padding: 10px;
+    background: none;
+  }
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 4.5px;
+
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: 0.2s;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.55);
+  }
+  &__icon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+  &__title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  &__text {
+    font-size: 17px;
+    color: #ffffff;
+    line-height: 1.55;
+    text-align: justify;
+    font-weight: 300;
+  }
+}

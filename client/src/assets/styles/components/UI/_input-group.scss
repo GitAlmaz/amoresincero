@@ -1,0 +1,45 @@
+.input-group {
+	width: 100%;
+	position: relative;
+
+	input {
+		width: 100%;
+		background: transparentize(#000, 0.7);
+		padding: 10px 20px;
+		border-radius: 5px;
+		font-size: 16px;
+		color: $cl-gray;
+		transition: $transition-primary;
+		box-shadow: inset 0px 0px 15px -5px rgba(0, 0, 0, 0.3);
+		backdrop-filter: blur(10px);
+		&[type='date'] {
+			max-height: 38px;
+		}
+		&:focus,
+		&:hover {
+			box-shadow: inset 0px 0px 15px -2px rgba(0, 0, 0, .7);
+		}
+		&:focus,
+		&:not(:placeholder-shown) {
+			& + label {
+				transform: translateX(15px);
+				opacity: 0;
+				font-size: 14px;
+			}
+		}
+	}
+	label {
+		position: absolute;
+		top: 10px;
+		left: 20px;
+		opacity: 0.5;
+		font-size: 16px;
+		transition: $transition-primary;
+		color: $cl-gray;
+		cursor: text;
+	}
+	&.error {
+		label {
+		}
+	}
+}

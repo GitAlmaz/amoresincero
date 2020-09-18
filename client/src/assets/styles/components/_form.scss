@@ -1,0 +1,53 @@
+.form {
+	width: 100%;
+	min-width: 400px;
+	max-width: 900px;
+	display: flex;
+	flex-direction: column;
+	@include media($smd) {
+		min-width: auto;
+	}
+	&__header {
+		background: rgba(0, 0, 0, 0.8);
+		display: flex;
+		justify-content: center;
+		padding: 10px 20px;
+		border-top-left-radius: 25px;
+		border-top-right-radius: 25px;
+		overflow: hidden;
+		h1 {
+			color: $cl-gray;
+			font-size: 20px;
+			font-weight: normal;
+		}
+	}
+	&__body {
+		background: rgba(0, 0, 0, 0.65);
+		padding: 20px;
+	}
+	&__section {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-content: flex-start;
+		flex-wrap: wrap;
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+	&__subtitle {
+		width: 100%;
+		font-size: 18px;
+		color: $cl-gray;
+		margin-bottom: 10px;
+	}
+	&__input-group {
+		width: 49%;
+		@include media($smd) {
+			width: 100%;
+		}
+		&:not(:nth-last-child(-n + 2)) {
+			margin-bottom: 20px;
+		}
+	}
+}
