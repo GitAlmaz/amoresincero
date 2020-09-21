@@ -14,7 +14,7 @@
         </p>
       </template>
       <template slot="button">
-        <button class="btn btn--gold">{{ 'Button_Connect' | localize }}</button>
+        <button class="btn btn--gold" @click.prevent="() => {toggleModal(true)}">{{ 'Button_Connect' | localize }}</button>
       </template>
     </ContentInner>
   </section>
@@ -23,7 +23,7 @@
 <script>
 import ContentInner from '@/components/ContentInner'
 import localizeFilter from '@/filters/localize.filter'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'Womans',
   components: {
@@ -44,6 +44,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['toggleModal']),
     changeText() {
       this.text = localizeFilter('Womans_Text')
       const arr = this.text.split('\n').filter((item) => item != '')

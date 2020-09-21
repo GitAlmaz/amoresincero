@@ -1,8 +1,10 @@
 .content-section {
   width: 100%;
   padding: 0 45px;
-  animation: apearing .5s ease-in backwards;
+  animation: apearing 0.5s ease-in backwards;
+
   @include media($smd) {
+    height: calc(100vh - 147px);
     padding: 0 15px;
     min-width: 100vw;
     margin-left: -15px;
@@ -13,10 +15,15 @@
       position: fixed;
       bottom: 0;
       left: 0;
-      background:linear-gradient(0deg, $cl-dark-blue 15%, transparentize($cl-dark-blue, .5) 75%,transparentize($cl-dark-blue, 1));
+      background: linear-gradient(
+        0deg,
+        $cl-dark-blue 15%,
+        transparentize($cl-dark-blue, 0.5) 75%,
+        transparentize($cl-dark-blue, 1)
+      );
     }
   }
-  
+
   &__hero {
     display: flex;
     flex-direction: column;
@@ -163,7 +170,6 @@
           object-fit: contain;
         }
       }
-      
     }
   }
   &--about {
@@ -230,8 +236,8 @@
       font-weight: 700;
       margin-bottom: 30px;
       @include media($smd) {
-        margin-bottom: 10px;
         font-size: 20px;
+        margin-bottom: 0;
       }
     }
     .flex-row {
@@ -239,8 +245,13 @@
       z-index: 2;
       position: relative;
       @include media($md) {
-        flex-direction: column;
+        // width: 100vw;
         justify-content: flex-start;
+        flex-wrap: wrap;
+        // margin-left: -15px;
+        // margin-right: -15px;
+        // overflow: hidden;
+        // overflow-x: auto;
         .flex-col-4 {
           min-width: 100%;
           padding: 0;
@@ -248,27 +259,49 @@
       }
       /* width */
       &::-webkit-scrollbar {
-        width: 5px;
-        height: 5px;
+        width: 10px;
       }
 
       /* Track */
       &::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0);
+        background: rgba(255, 255, 255, 0.07);
         border-radius: 4.5px;
       }
 
       /* Handle */
       &::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.65);
+        border-radius: 4.5px;
         transition: 0.2s;
       }
 
       /* Handle on hover */
       &::-webkit-scrollbar-thumb:hover {
-        background: rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.85);
       }
+      // /* width */
+      // &::-webkit-scrollbar {
+      //   width: 5px;
+      //   height: 5px;
+      // }
+
+      // /* Track */
+      // &::-webkit-scrollbar-track {
+      //   background: rgba(255, 255, 255, 0);
+      //   border-radius: 4.5px;
+      // }
+
+      // /* Handle */
+      // &::-webkit-scrollbar-thumb {
+      //   background: rgba(255, 255, 255, 0.05);
+      //   border-radius: 10px;
+      //   transition: 0.2s;
+      // }
+
+      // /* Handle on hover */
+      // &::-webkit-scrollbar-thumb:hover {
+      //   background: rgba(255, 255, 255, 0.55);
+      // }
     }
   }
   &--contacts {

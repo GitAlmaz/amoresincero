@@ -156,8 +156,9 @@ export default {
           FR.addEventListener('load', () => {
             const img = `<img src="${FR.result}" />`
             this.$refs.photosOut.insertAdjacentHTML('beforeend', img)
+            const base64 = FR.result.replace('data:image/jpeg;base64,', '')
             if (!this.form.photos.includes(FR.result)) {
-              this.form.photos.push({ path: FR.result })
+              this.form.photos.push(FR.result)
             }
           })
           FR.readAsDataURL(file)
@@ -167,15 +168,15 @@ export default {
     async sendFormAjax(e) {
       try {
         e.target.querySelector('button').disabled = true
-        const res = await fetch('/user/request', {
+        const res = await fetch('/mail.php', {
           method: 'POST',
           headers: {
+            'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(this.form)
         })
-        const resData = await res.json()
-        if (resData.status === 1) {
+        if (res.status === 200) {
           this.form = {
             name: '',
             birthday: '',
@@ -194,7 +195,6 @@ export default {
             this.closeModal()
           }, 1500)
         }
-        console.log(resData)
       } catch (error) {
         console.log(error)
       }

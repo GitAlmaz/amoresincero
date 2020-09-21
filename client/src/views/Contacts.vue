@@ -131,7 +131,7 @@
             </div>
           </div>
         </div>
-        <button class="btn btn--gold">{{ 'Button_Connect' | localize }}</button>
+        <button class="btn btn--gold" @click.prevent="() => {toggleModal(true)}">{{ 'Button_Connect' | localize }}</button>
       </div>
     </div>
     <h1>Amore Sincero</h1>
@@ -142,6 +142,7 @@
 <script>
 import ContactCard from '@/components/ContactCard'
 import { loadYmap } from 'vue-yandex-maps'
+import { mapMutations } from 'vuex'
 export default {
   name: 'Contacts',
   components: {
@@ -224,6 +225,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['toggleModal']),
     async loaderOfMap() {
       await loadYmap()
       this.mapLoading = false

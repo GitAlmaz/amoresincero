@@ -1,5 +1,5 @@
 .content-inner {
-	height: 755px;
+	height: calc(100vh - 115px);
 	width: 855px;
 	padding: 31px 34px 31px 68px;
 	overflow: hidden;
@@ -21,8 +21,8 @@
 		width: 80%;
 	}
 	@include media($smd) {
-		padding: 21px 0 0 0;
-		height: 76vh;
+		padding: 21px 0 10px 0;
+		height: calc(100vh - 147px);
 		width: 100%;
 		background: none;
 	}

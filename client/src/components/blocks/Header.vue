@@ -2,7 +2,7 @@
   <header class="header" :class="{ active: ddMenuOpened }">
     <div class="container">
       <div class="header__top">
-        <button @click.prevent="triggerModal" class="btn btn--empty">
+        <button @click.prevent="() => {toggleModal(true)}" class="btn btn--empty">
           {{ 'Header_Button' | localize }}
         </button>
         <ul class="header__lang">
@@ -27,7 +27,7 @@
         <div class="header__navigation">
           <Navigation />
         </div>
-        <button @click.prevent="triggerModal" class="btn btn--empty">
+        <button @click.prevent="() => {toggleModal(true)}" class="btn btn--empty">
           {{ 'Header_Button' | localize }}
         </button>
         <div class="header__menu-btn" @click="triggerMenu">
@@ -92,9 +92,6 @@ export default {
       const locale = e.currentTarget.dataset.locale
       this.langSelected = id
       this.changeLocale(locale)
-    },
-    triggerModal() {
-      this.toggleModal(true)
     },
     triggerMenu(value) {
       this.toggleMenu(!this.ddMenuOpened)
