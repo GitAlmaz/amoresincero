@@ -1,5 +1,6 @@
 {
   "projects": {
-    "amore-sincero": "amore-sincero"
+    "amore-sincero": "amore-sincero",
+    "default": "amore-sincero"
   }
 }

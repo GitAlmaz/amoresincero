@@ -19,7 +19,7 @@
     min-height: auto;
   }
   @include media($smd) {
-    padding: 10px;
+    padding: 10px 0;
     background: none;
     flex-direction: row;
     flex-wrap: wrap;
@@ -79,6 +79,7 @@
       width: 50px;
       height: 50px;
       margin-right: 20px;
+      margin-bottom: 0;
     }
   }
   &__title {
@@ -86,6 +87,9 @@
     font-weight: 600;
     color: #ffffff;
     margin-bottom: 20px;
+    @include media($smd) {
+      margin-bottom: 0;
+    }
   }
   &__text {
     font-size: 17px;

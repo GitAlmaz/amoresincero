@@ -16,7 +16,7 @@
     height: calc(100vh - 115px);
     @include media($smd) {
       margin: 0 0 auto 0;
-      max-height: calc(100vh - 147px);
+      max-height: calc(100vh - 107px);
       overflow-y: auto;
     }
     .container {

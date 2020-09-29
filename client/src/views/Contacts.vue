@@ -50,7 +50,7 @@
               </a>
             </div>
             <div class="flex-col">
-              <a href="`mailto:mailformail@gmail.com`">mailformail@gmail.com</a>
+              <a href="`mailto:Amoresincero1@yandex.ru`">Amoresincero1@yandex.ru</a>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
               </a>
             </div>
             <div class="flex-col">
-              <a href="`mailto:mailformail@gmail.com`">mailformail@gmail.com</a>
+              <a href="`mailto:Amoresincero1@yandex.ru`">Amoresincero1@yandex.ru</a>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@
               </a>
             </div>
             <div class="flex-col">
-              <a href="`mailto:mailformail@gmail.com`">mailformail@gmail.com</a>
+              <a href="`mailto:Amoresincero1@yandex.ru`">Amoresincero1@yandex.ru</a>
             </div>
           </div>
         </div>

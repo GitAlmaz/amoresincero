@@ -9,6 +9,13 @@
 			<a href="">
 				<img src="@/assets/img/icons/move-down.png" alt="" />
 			</a>
+			<div>
+				<!-- <img src="@/assets/img/icons/left-arrow.svg" alt="" class="left"> -->
+				<p>
+					Swipe to change pages
+				</p>
+				<!-- <img src="@/assets/img/icons/right-arrow.svg" alt="" class="right"> -->
+			</div>
 		</div>
 	</section>
 </template>
@@ -16,6 +23,9 @@
 <script>
 export default {
 	name: 'Home',
-	components: {}
+	components: {},
+	data: () => ({
+		
+	})
 }
 </script>

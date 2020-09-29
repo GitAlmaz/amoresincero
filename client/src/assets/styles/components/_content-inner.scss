@@ -21,8 +21,8 @@
 		width: 80%;
 	}
 	@include media($smd) {
-		padding: 21px 0 10px 0;
-		height: calc(100vh - 147px);
+		padding: 0;
+		height: calc(100vh - 107px);
 		width: 100%;
 		background: none;
 	}
@@ -34,6 +34,7 @@
 		padding-right: 34px;
 		@include media($smd) {
 			padding-right: 14px;
+			max-height: 85%;
 		}
 		p {
 			text-align: justify;
