@@ -121,11 +121,15 @@ export default {
 
 <style lang="scss">
 .footer {
+	width: 100vw;
+	display: none;
   z-index: 10;
   position: relative;
   padding: 15px 0;
   background: rgba(0, 0, 0, 0.35);
-
+	@media (max-width: 800px) {
+		display: block;
+	}
   &.disabled {
     display: none;
   }
