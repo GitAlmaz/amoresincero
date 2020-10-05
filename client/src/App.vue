@@ -43,6 +43,7 @@
           </ul>
           <router-view />
         </div>
+        <Footer />
       </div>
     </main>
   </div>
@@ -50,6 +51,7 @@
 
 <script>
 import Header from '@/components/blocks/Header'
+import Footer from '@/components/blocks/Footer'
 import Modal from '@/components/Modal'
 import Alert from '@/components/Alert'
 import { mapGetters } from 'vuex'
@@ -58,7 +60,8 @@ export default {
   components: {
     Modal,
     Alert,
-    Header
+    Header,
+    Footer
   },
   data: () => ({
     hidden: false,
@@ -67,7 +70,9 @@ export default {
     tEnd: 0,
     tMove: 0,
     prevPage: '',
-    nextPage: ''
+    nextPage: '',
+    startDis: 50,
+    endDis: 150
   }),
   computed: {
     ...mapGetters(['modalOpened'])
@@ -127,23 +132,23 @@ export default {
       window.addEventListener('touchmove', evt => {
         this.tMove = evt.touches[0].clientX
         findDiff(this.tStart, this.tMove)
-        if (this.tDiff > 75 || this.tDiff < -75) {
+        if (this.tDiff > this.startDis || this.tDiff < -this.startDis) {
           this.hidden = true
           overlay(true)
           // appMove(this.tDiff)
           changePages(window.location.hash)
         }
-        if (this.tDiff > 75) {
-          this.$refs.prev.style.opacity = `${this.tDiff / 75 - 1}`
-          this.$refs.prev.style.transform = `scale(${this.tDiff / 75}) translateX(${this.tDiff / 10}px)`
+        if (this.tDiff > this.startDis) {
+          this.$refs.prev.style.opacity = `${this.tDiff / this.startDis - 1}`
+          this.$refs.prev.style.transform = `scale(${this.tDiff / this.startDis}) translateX(${this.tDiff / 10}px)`
         }
-        if (this.tDiff < -75) {
-          this.$refs.next.style.opacity = `${-this.tDiff / 75 - 1}`
-          this.$refs.next.style.transform = `scale(${-this.tDiff / 75}) translateX(-${-this.tDiff / 10}px)`
+        if (this.tDiff < -this.startDis) {
+          this.$refs.next.style.opacity = `${-this.tDiff / this.startDis - 1}`
+          this.$refs.next.style.transform = `scale(${-this.tDiff / this.startDis}) translateX(-${-this.tDiff / 10}px)`
         }
-        if (this.tDiff > 250) {
+        if (this.tDiff > this.endDis) {
           router.push({ path: this.prevPage })
-        } else if (this.tDiff < -250) {
+        } else if (this.tDiff < -this.endDis) {
           router.push({ path: this.nextPage })
         }
       })
