@@ -1,6 +1,6 @@
 .content-section {
   width: 100%;
-  padding: 0 45px;
+  // padding: 0 45px;
   animation: apearing 0.5s ease-in backwards;
 
   @include media($smd) {
@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    margin-bottom: 80px;
     h1 {
       font-family: $font-second-regular;
       color: #fff;
@@ -215,7 +215,7 @@
       position: absolute;
       bottom: 0;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-45%);
       margin-left: -22%;
       @include media($smd) {
         width: 800px;
@@ -231,7 +231,7 @@
       position: absolute;
       left: 50%;
       bottom: 0;
-      transform: translateX(-50%);
+      transform: translateX(-45%);
       margin-left: -22%;
       @include media($smd) {
         margin-top: 4%;
@@ -249,7 +249,7 @@
       position: absolute;
       left: 50%;
       bottom: 0;
-      transform: translateX(-50%);
+      transform: translateX(-45%);
       margin-left: -24%;
       @include media($smd) {
         width: 550px;

@@ -52,4 +52,23 @@
       }
     }
   }
+  &__countries {
+    display: flex;
+    flex-direction: column;
+    @include media($smd) {
+      display: none;
+    }
+    li {
+      margin: 5px 0;
+      opacity: 0.5;
+      transition: .2s;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    img {
+      width: 23px;
+      height: 23px;
+    }
+  }
 }

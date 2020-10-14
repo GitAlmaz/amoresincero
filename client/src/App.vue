@@ -42,6 +42,26 @@
             </li>
           </ul>
           <router-view />
+          <ul class="main__countries">
+            <li>
+              <img src="@/assets/img/icons/france.svg" alt="">
+            </li>
+            <li>
+              <img src="@/assets/img/icons/uk-rounded.svg" alt="">
+            </li>
+            <li>
+              <img src="@/assets/img/icons/russia-rounded.svg" alt="">
+            </li>
+            <li>
+              <img src="@/assets/img/icons/italy.svg" alt="">
+            </li>
+            <li>
+              <img src="@/assets/img/icons/germany.svg" alt="">
+            </li>
+            <li>
+              <img src="@/assets/img/icons/spain-rounded.svg" alt="">
+            </li>
+          </ul>
         </div>
         <Footer />
       </div>

@@ -1,10 +1,13 @@
 <template>
   <footer class="footer">
     <div class="container">
+      <div class="footer__copyright">
+        Брачное агентство "Amore Sincero" ©2015-2020. Все права защищены.
+      </div>
       <div class="footer__navigation">
         <Navigation />
       </div>
-      <ul class="header__lang">
+      <ul class="footer__lang">
         <li v-for="item in langs" :key="item.id">
           <a
             href=""
@@ -121,25 +124,42 @@ export default {
 
 <style lang="scss">
 .footer {
-	width: 100vw;
-	display: none;
+  width: 100vw;
+  display: block;
   z-index: 10;
-  position: relative;
-  padding: 15px 0;
+  padding: 5px 0;
   background: rgba(0, 0, 0, 0.35);
-	@media (max-width: 800px) {
-		display: block;
-	}
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(15px);
+  @media (max-width: 800px) {
+    position: relative;
+    display: block;
+  }
   &.disabled {
     display: none;
   }
   .container {
     flex-wrap: wrap;
-    align-items: flex-start !important;
+    align-items: center !important;
+    @media (max-width: 800px) {
+      align-items: flex-start !important;
+    }
+  }
+  &__copyright {
+    font-size: 14px;
+    color: #dddddd;
+    text-shadow: 0px 0px 5px rgba(0,0,0,.3);
+    order: 1;
   }
   &__navigation {
     width: 65%;
     margin-bottom: 15px;
+    display: none;
+    @media (max-width: 800px) {
+      display: block;
+    }
     .navigation {
       width: 100%;
       flex-direction: row !important;
@@ -166,9 +186,40 @@ export default {
       }
     }
   }
-  &__contact {
-    width: 100%;
+  &__lang {
     display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    display: none;
+    @media (max-width: 800px) {
+      display: flex;
+    }
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.25;
+        transition: 0.2s;
+        &.active,
+        &:hover {
+          opacity: 1;
+        }
+        img {
+          width: 27px;
+          height: 19px;
+          object-fit: contain;
+          z-index: 1;
+        }
+      }
+    }
+  }
+  &__contact {
+    display: flex;
+    @media (max-width: 800px) {
+      width: 100%;
+      display: flex;
+    }
     .contact-card {
       .flex-col {
         width: 100% !important;

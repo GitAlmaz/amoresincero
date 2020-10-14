@@ -6,9 +6,9 @@
 			<h1>Amore Sincero</h1>
 			<h2>International Marriage Agency</h2>
 			<h3>{{ 'Home_Title' | localize }}</h3>
-			<a href="">
+			<!-- <a href="">
 				<img src="@/assets/img/icons/move-down.png" alt="" />
-			</a>
+			</a> -->
 			<div>
 				<!-- <img src="@/assets/img/icons/left-arrow.svg" alt="" class="left"> -->
 				<p>
