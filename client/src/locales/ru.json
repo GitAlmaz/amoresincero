@@ -40,5 +40,6 @@
   "Modal_Input_PlaceOfLive": "ПМЖ (страна/город)",
   "Modal_Input_ContactNumber": "Контактный номер",
   "Modal_Input_Email": "Email",
-  "Modal_Input_HeightWeight": "Рост/вес"
+  "Modal_Input_HeightWeight": "Рост/вес",
+  "Hero_Swipe_Pages": "Свайпните для смены страницы"
 }

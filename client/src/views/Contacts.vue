@@ -8,12 +8,12 @@
         </div>
         <yandex-map v-else :coords="['50.181602', '11.543889']" zoom="3">
           <ymap-marker
-            marker-id="123"
+            marker-id="121"
             :coords="['55.776721', '37.678369']"
             :icon="marker"
           />
           <ymap-marker
-            marker-id="123"
+            marker-id="122"
             :coords="['45.471439', '9.170047']"
             :icon="marker"
           /><ymap-marker
@@ -221,13 +221,18 @@ export default {
         imageHref: 'https://image.flaticon.com/icons/svg/929/929426.svg',
         imageSize: [40, 40],
         imageOffset: [-20, -40]
+      },
+      ymapSettings: {
+        apiKey: '58e991ff-448b-48da-a58e-4737ff0b57c1',
+        lang: 'en_US',
+        version: '2.1'
       }
     }
   },
   methods: {
     ...mapMutations(['toggleModal']),
     async loaderOfMap() {
-      await loadYmap()
+      await loadYmap({...this.ymapSettings})
       this.mapLoading = false
     }
   },

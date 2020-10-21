@@ -12,7 +12,7 @@
 			<div>
 				<!-- <img src="@/assets/img/icons/left-arrow.svg" alt="" class="left"> -->
 				<p>
-					Swipe to change pages
+					{{ 'Hero_Swipe_Pages' | localize }}
 				</p>
 				<!-- <img src="@/assets/img/icons/right-arrow.svg" alt="" class="right"> -->
 			</div>

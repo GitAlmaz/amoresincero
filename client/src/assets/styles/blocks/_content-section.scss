@@ -54,12 +54,15 @@
     }
 
     h3 {
-      font-size: 15px;
+      font-size: 18px;
       color: #fff;
-      font-weight: 500;
-      text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.7);
+      font-weight: 900;
+      text-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
       z-index: 1;
       margin-bottom: 20px;
+      padding: 0 4px;
+      background: linear-gradient(90deg, rgba(30,30,30,.5) 0%, rgba(0,0,0,0) 80%);
+      border-radius: 5px;
       @include media($smd) {
         font-size: 7rem;
       }
@@ -98,6 +101,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         animation: slidetounlock 2.5s linear infinite;
+        text-align: center;
       }
       &::before {
         content: '';
@@ -128,15 +132,20 @@
     );
     border-radius: 10px;
     display: flex;
+    align-items: stretch;
     justify-content: space-between;
     padding: 20px;
     margin-bottom: 80px;
+    @include media(1367px) {
+      margin-bottom: 20px;
+    }
     @include media($md) {
       flex-direction: column;
       z-index: 2;
       position: relative;
       background: none;
       padding: 0;
+      margin-bottom: 20px;
       .flex-col-5 {
         padding: 0;
       }
@@ -258,6 +267,9 @@
         margin-left: -17%;
       }
     }
+    .content-inner {
+      background: linear-gradient(90deg, rgba(36, 38, 48, 0) 0%, rgba(36, 38, 48, .9) 10%, rgba(36, 38, 48, 0.9) 80%, rgba(30, 31, 40, 0) 100%);
+    }
   }
   &--services {
     max-width: 1050px;
@@ -353,6 +365,9 @@
       color: #ffffff;
       font-weight: 700;
       margin-bottom: 30px;
+      @include media(1367px) {
+        margin-bottom: 10px;
+      }
     }
     h1 {
       font-family: $font-second-regular;
@@ -362,7 +377,7 @@
       line-height: 1;
       z-index: 1;
       text-align: center;
-      @include media(1025px) {
+      @include media(1367px) {
         display: none;
       }
     }
@@ -374,7 +389,7 @@
       text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.7);
       z-index: 1;
       text-align: center;
-      @include media(1025px) {
+      @include media(1367px) {
         display: none;
       }
     }
@@ -388,6 +403,10 @@
         padding-bottom: 10px;
         margin-bottom: 10px;
         border-bottom: 1px solid transparentize(#54545c, 0.8);
+        @include media(1367px) {
+          margin-bottom: 5px;
+          padding-bottom: 5px;
+        }
       }
     }
   }

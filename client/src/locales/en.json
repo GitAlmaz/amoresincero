@@ -40,5 +40,6 @@
   "Modal_Input_PlaceOfLive": "Permanent residence (country / city)",
   "Modal_Input_ContactNumber": "Contact number",
   "Modal_Input_Email": "Email",
-  "Modal_Input_HeightWeight": "Height/weight"
+  "Modal_Input_HeightWeight": "Height/weight",
+  "Hero_Swipe_Pages": "Swipe to change pages"
 }

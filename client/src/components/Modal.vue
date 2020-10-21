@@ -72,16 +72,16 @@ export default {
           label: localizeFiter('Modal_Input_PlaceOfLive')
         },
         {
+          id: 'height_weight',
+          label: localizeFiter('Modal_Input_HeightWeight')
+        },
+        {
           id: 'contact_number',
           label: localizeFiter('Modal_Input_ContactNumber')
         },
         {
           id: 'email',
           label: localizeFiter('Modal_Input_Email')
-        },
-        {
-          id: 'height_weight',
-          label: localizeFiter('Modal_Input_HeightWeight')
         }
       ],
       form: {
@@ -124,16 +124,16 @@ export default {
           label: localizeFiter('Modal_Input_PlaceOfLive')
         },
         {
+          id: 'height_weight',
+          label: localizeFiter('Modal_Input_HeightWeight')
+        },
+        {
           id: 'contact_number',
           label: localizeFiter('Modal_Input_ContactNumber')
         },
         {
           id: 'email',
           label: localizeFiter('Modal_Input_Email')
-        },
-        {
-          id: 'height_weight',
-          label: localizeFiter('Modal_Input_HeightWeight')
         }
       ]
     }

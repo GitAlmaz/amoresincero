@@ -44,22 +44,22 @@
           <router-view />
           <ul class="main__countries">
             <li>
-              <img src="@/assets/img/icons/france.svg" alt="">
+              <img src="@/assets/img/icons/spain-rounded.svg" alt="" />
             </li>
             <li>
-              <img src="@/assets/img/icons/uk-rounded.svg" alt="">
+              <img src="@/assets/img/icons/france.svg" alt="" />
             </li>
             <li>
-              <img src="@/assets/img/icons/russia-rounded.svg" alt="">
+              <img src="@/assets/img/icons/uk-rounded.svg" alt="" />
             </li>
             <li>
-              <img src="@/assets/img/icons/italy.svg" alt="">
+              <img src="@/assets/img/icons/russia-rounded.svg" alt="" />
             </li>
             <li>
-              <img src="@/assets/img/icons/germany.svg" alt="">
+              <img src="@/assets/img/icons/italy.svg" alt="" />
             </li>
             <li>
-              <img src="@/assets/img/icons/spain-rounded.svg" alt="">
+              <img src="@/assets/img/icons/germany.svg" alt="" />
             </li>
           </ul>
         </div>
@@ -160,11 +160,13 @@ export default {
         }
         if (this.tDiff > this.startDis) {
           this.$refs.prev.style.opacity = `${this.tDiff / this.startDis - 1}`
-          this.$refs.prev.style.transform = `scale(${this.tDiff / this.startDis}) translateX(${this.tDiff / 10}px)`
+          this.$refs.prev.style.transform = `scale(${this.tDiff /
+            this.startDis}) translateX(${this.tDiff / 10}px)`
         }
         if (this.tDiff < -this.startDis) {
           this.$refs.next.style.opacity = `${-this.tDiff / this.startDis - 1}`
-          this.$refs.next.style.transform = `scale(${-this.tDiff / this.startDis}) translateX(-${-this.tDiff / 10}px)`
+          this.$refs.next.style.transform = `scale(${-this.tDiff /
+            this.startDis}) translateX(-${-this.tDiff / 10}px)`
         }
         if (this.tDiff > this.endDis) {
           router.push({ path: this.prevPage })

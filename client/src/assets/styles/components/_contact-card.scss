@@ -7,12 +7,18 @@
     font-size: 20px;
     font-weight: 400;
     color: #ffffff;
-    margin-bottom: 10px;
+		margin-bottom: 10px;
+		@include media(1367px) {
+			margin-bottom: 5px;
+		} 
   }
   p {
     font-size: 13px;
     color: #ffffff;
-    margin-bottom: 8px;
+		margin-bottom: 8px;
+		@include media(1367px) {
+			margin-bottom: 5px;
+		}
   }
 	.flex-row {
 		align-items: flex-end;
