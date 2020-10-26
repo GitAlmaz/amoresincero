@@ -52,30 +52,6 @@
       }
     }
   }
-  &__lang {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    li {
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.5;
-        transition: 0.2s;
-        &.active,
-        &:hover {
-          opacity: 1;
-        }
-        img {
-          width: 27px;
-          height: 19px;
-          object-fit: contain;
-          z-index: 1;
-        }
-      }
-    }
-  }
   &__menu {
     width: 100%;
     display: flex;

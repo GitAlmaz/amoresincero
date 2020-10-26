@@ -7,18 +7,9 @@
       <div class="footer__navigation">
         <Navigation />
       </div>
-      <ul class="footer__lang">
-        <li v-for="item in langs" :key="item.id">
-          <a
-            href=""
-            :data-locale="item.locale"
-            :data-id="item.id"
-            @click.prevent="changeLang"
-            :class="{ active: item.id === langSelected }"
-            ><img :src="require(`@/assets/img/icons/${item.img}`)" alt=""
-          /></a>
-        </li>
-      </ul>
+      <div class="footer__lang">
+        <Languages />
+      </div>
       <div class="footer__contact">
         <div class="contact-card">
           <div class="flex-row">
@@ -47,10 +38,12 @@
 <script>
 import { mapMutations, mapGetters } from 'vuex'
 import Navigation from '@/components/Navigation'
+import Languages from '@/components/Languages'
 export default {
   name: 'Footer',
   components: {
-    Navigation
+    Navigation,
+    Languages
   },
   data() {
     return {
@@ -136,6 +129,7 @@ export default {
   @media (max-width: 800px) {
     position: relative;
     display: block;
+    margin-top: 20px;
   }
   &.disabled {
     display: none;
@@ -187,31 +181,9 @@ export default {
     }
   }
   &__lang {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
     display: none;
     @media (max-width: 800px) {
       display: flex;
-    }
-    li {
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.25;
-        transition: 0.2s;
-        &.active,
-        &:hover {
-          opacity: 1;
-        }
-        img {
-          width: 27px;
-          height: 19px;
-          object-fit: contain;
-          z-index: 1;
-        }
-      }
     }
   }
   &__contact {

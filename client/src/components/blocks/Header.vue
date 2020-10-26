@@ -5,18 +5,9 @@
         <button @click.prevent="() => {toggleModal(true)}" class="btn btn--empty">
           {{ 'Header_Button' | localize }}
         </button>
-        <ul class="header__lang">
-          <li v-for="item in langs" :key="item.id">
-            <a
-              href=""
-              :data-locale="item.locale"
-              :data-id="item.id"
-              @click.prevent="changeLang"
-              :class="{ active: item.id === langSelected }"
-              ><img :src="require(`@/assets/img/icons/${item.img}`)" alt=""
-            /></a>
-          </li>
-        </ul>
+        <div class="header__lang">
+          <Languages />
+        </div>
       </div>
 
       <div class="header__menu">
@@ -50,10 +41,12 @@
 <script>
 import { mapMutations, mapGetters } from 'vuex'
 import Navigation from '@/components/Navigation'
+import Languages from '@/components/Languages'
 export default {
   name: 'Header',
   components: {
-    Navigation
+    Navigation,
+    Languages
   },
   data() {
     return {
