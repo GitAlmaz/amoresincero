@@ -5,11 +5,12 @@
 
   @include media($smd) {
     height: calc(100vh - 107px);
-    padding: 0 15px;
+    padding: 0 15px 15px 15px;
     min-width: 100vw;
-    margin-left: -15px;
+    // margin-left: -15px;
+    position: relative;
     &::after {
-      content: '';
+      // content: '';
       width: 100vw;
       height: 75vh;
       position: fixed;
@@ -29,6 +30,11 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 80px;
+    @include media($smd) {
+      height: 100%;
+      margin-bottom: 0;
+      padding-top: 40px;
+    }
     h1 {
       font-family: $font-second-regular;
       color: #fff;
@@ -36,8 +42,8 @@
       font-weight: 100;
       line-height: 1;
       z-index: 1;
-      @include media(1367px) {
-        font-size: 22rem;
+      @include media(1550px) {
+        font-size: 18rem;
       }
       @include media($smd) {
         font-size: 30rem;
@@ -51,8 +57,8 @@
       font-weight: 100;
       text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.7);
       z-index: 1;
-      @include media(1367px) {
-        font-size: 6.5rem;
+      @include media(1550px) {
+        font-size: 5rem;
       }
       @include media($smd) {
         font-size: 14rem;
@@ -69,8 +75,8 @@
       padding: 0 4px;
       background: linear-gradient(90deg, rgba(30,30,30,.5) 0%, rgba(0,0,0,0) 80%);
       border-radius: 5px;
-      @include media(1367px) {
-        font-size: 3rem;
+      @include media(1550px) {
+        font-size: 2rem;
       }
       @include media($smd) {
         font-size: 7rem;
@@ -100,9 +106,9 @@
       justify-content: space-evenly;
       position: relative;
       bottom: 60px;
-      margin-top: 62vh;
       @include media($smd) {
         display: flex;
+        margin-top: auto;
       }
       p {
         font-size: 25px;
@@ -145,7 +151,7 @@
     justify-content: space-between;
     padding: 20px;
     margin-bottom: 80px;
-    @include media(1367px) {
+    @include media(1550px) {
       margin-bottom: 20px;
     }
     @include media($md) {
@@ -279,15 +285,14 @@
         margin-left: -17%;
       }
     }
-    .content-inner {
-      background: linear-gradient(90deg, rgba(36, 38, 48, 0) 0%, rgba(36, 38, 48, .9) 10%, rgba(36, 38, 48, 0.9) 80%, rgba(30, 31, 40, 0) 100%);
-    }
+    // .content-inner {
+    //   background: linear-gradient(90deg, rgba(36, 38, 48, 0) 0%, rgba(36, 38, 48, .9) 10%, rgba(36, 38, 48, 0.9) 80%, rgba(30, 31, 40, 0) 100%);
+    // }
   }
   &--services {
     max-width: 1050px;
     margin: 0 auto;
     @include media($smd) {
-      margin: 0 0 0 -15px;
       overflow-y: auto;
     }
     
@@ -373,13 +378,16 @@
       margin: 0 0 0 -15px;
       overflow-y: auto;
     }
+    @include media($smd) {
+      margin: 0 auto;
+    }
     h3 {
       text-align: center;
       font-size: 30px;
       color: #ffffff;
       font-weight: 700;
       margin-bottom: 30px;
-      @include media(1367px) {
+      @include media(1550px) {
         margin-bottom: 10px;
       }
     }
@@ -391,7 +399,7 @@
       line-height: 1;
       z-index: 1;
       text-align: center;
-      @include media(1367px) {
+      @include media(1550px) {
         display: none;
       }
     }
@@ -403,7 +411,7 @@
       text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.7);
       z-index: 1;
       text-align: center;
-      @include media(1367px) {
+      @include media(1550px) {
         display: none;
       }
     }
@@ -417,7 +425,7 @@
         padding-bottom: 10px;
         margin-bottom: 10px;
         border-bottom: 1px solid transparentize(#54545c, 0.8);
-        @include media(1367px) {
+        @include media(1550px) {
           margin-bottom: 5px;
           padding-bottom: 5px;
         }

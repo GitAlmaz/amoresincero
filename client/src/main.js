@@ -5,7 +5,6 @@ import store from './store'
 import localizeFilter from '@/filters/localize.filter'
 import YmapPlugin from 'vue-yandex-maps'
 
-
 Vue.config.productionTip = false
 
 // const YmapSettings = {

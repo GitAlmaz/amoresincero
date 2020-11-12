@@ -129,7 +129,6 @@ export default {
   @media (max-width: 800px) {
     position: relative;
     display: block;
-    margin-top: 20px;
   }
   &.disabled {
     display: none;

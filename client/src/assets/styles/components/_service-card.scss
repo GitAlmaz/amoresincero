@@ -13,9 +13,9 @@
   border-radius: 10px;
   padding: 51px 22px;
   overflow-y: auto;
-  @include media(1367px) {
+  @include media(1550px) {
     padding: 5px 20px;
-    min-height: 375px;
+    min-height: 335px;
     max-height: 375px;
   }
   @include media($md) {
@@ -82,7 +82,7 @@
     object-fit: contain;
     margin-bottom: 20px;
     flex-shrink: 0;
-    @include media(1367px) {
+    @include media(1550px) {
       width: 70px;
       height: 70px;
       margin-bottom: 10px;
@@ -100,7 +100,7 @@
     font-weight: 600;
     color: #ffffff;
     margin-bottom: 20px;
-    @include media(1367px)  {
+    @include media(1550px)  {
       margin-bottom: 10px;
     }
     @include media($smd) {

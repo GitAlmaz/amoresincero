@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="hidden && 'overflow-hidden'" ref="app">
+  <div id="app" ref="app">
     <div id="app-overlay" ref="appOverlay">
       <div class="arrows prev" ref="prev">
         <img src="@/assets/img/icons/left-arrow.svg" alt="" />
@@ -13,7 +13,7 @@
     <main class="main">
       <Header />
       <div class="main__content">
-        <div class="container">
+        <div v-if="!mobile" class="container">
           <ul class="main__pager">
             <li>
               <router-link exact-active-class="active" to="/about"
@@ -63,6 +63,24 @@
             </li>
           </ul>
         </div>
+          <Swiper  v-else >
+            <SwiperSlide>
+              <Home />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Womans />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Mans />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Services />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Contacts />
+            </SwiperSlide>
+          </Swiper>
+        
         <Footer />
       </div>
     </main>
@@ -76,23 +94,30 @@ import Modal from '@/components/Modal'
 import Alert from '@/components/Alert'
 import { mapGetters } from 'vuex'
 import router from './router'
+import Home from '@/views/Home'
+import Womans from '@/views/Womans'
+import Mans from '@/views/Mans'
+import Services from '@/views/Services'
+import Contacts from '@/views/Contacts'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import 'swiper/swiper.scss'
+
 export default {
   components: {
     Modal,
     Alert,
     Header,
-    Footer
+    Footer,
+    Home,
+    Womans,
+    Mans,
+    Services,
+    Contacts,
+    Swiper,
+    SwiperSlide
   },
   data: () => ({
-    hidden: false,
-    tDiff: 0,
-    tStart: 0,
-    tEnd: 0,
-    tMove: 0,
-    prevPage: '',
-    nextPage: '',
-    startDis: 50,
-    endDis: 150
+    mobile: window.innerWidth < 560 ? true : false
   }),
   computed: {
     ...mapGetters(['modalOpened'])
@@ -106,100 +131,14 @@ export default {
     }
   },
   methods: {
-    slidePage() {
-      const findDiff = (start, current) => (this.tDiff = current - start)
-      const overlay = flag => {
-        if (flag) {
-          this.$refs.appOverlay.style.visibility = 'visible'
-        } else {
-          this.$refs.appOverlay.style.visibility = 'hidden'
-        }
-      }
-      const appMove = px => {
-        this.$refs.app.style.transform = `translateX(${px / 10}px)`
-      }
-      const changePages = hash => {
-        switch (hash) {
-          case '#/':
-            this.prevPage = '/contacts'
-            this.nextPage = '/about'
-            break
-          case '#/about':
-            this.prevPage = '/'
-            this.nextPage = '/mans'
-            break
-          case '#/mans':
-            this.prevPage = '/about'
-            this.nextPage = '/womans'
-            break
-          case '#/womans':
-            this.prevPage = '/mans'
-            this.nextPage = '/services'
-            break
-          case '#/services':
-            this.prevPage = '/womans'
-            this.nextPage = '/contacts'
-            break
-          case '#/contacts':
-            this.prevPage = '/services'
-            this.nextPage = '/'
-            break
-        }
-      }
-      window.addEventListener('touchstart', evt => {
-        this.tStart = evt.touches[0].clientX
-      })
-      window.addEventListener('touchmove', evt => {
-        this.tMove = evt.touches[0].clientX
-        findDiff(this.tStart, this.tMove)
-        if (this.tDiff > this.startDis || this.tDiff < -this.startDis) {
-          this.hidden = true
-          overlay(true)
-          // appMove(this.tDiff)
-          changePages(window.location.hash)
-        }
-        if (this.tDiff > this.startDis) {
-          this.$refs.prev.style.opacity = `${this.tDiff / this.startDis - 1}`
-          this.$refs.prev.style.transform = `scale(${this.tDiff /
-            this.startDis}) translateX(${this.tDiff / 10}px)`
-        }
-        if (this.tDiff < -this.startDis) {
-          this.$refs.next.style.opacity = `${-this.tDiff / this.startDis - 1}`
-          this.$refs.next.style.transform = `scale(${-this.tDiff /
-            this.startDis}) translateX(-${-this.tDiff / 10}px)`
-        }
-        if (this.tDiff > this.endDis) {
-          router.push({ path: this.prevPage })
-        } else if (this.tDiff < -this.endDis) {
-          router.push({ path: this.nextPage })
-        }
-      })
-      window.addEventListener('touchend', evt => {
-        this.hidden = false
-        this.tStart = 0
-        this.tMove = 0
-        // appMove(0)
-        overlay(false)
-        this.$refs.prev.style.opacity = '0'
-        this.$refs.prev.style.transform = `scale(1) translateX(0)`
-        this.$refs.next.style.opacity = '0'
-        this.$refs.next.style.transform = `scale(1) translateX(0)`
-      })
-      router.beforeEach((to, from, next) => {
-        this.hidden = false
-        // appMove(0)
-        overlay(false)
-        this.$refs.prev.style.opacity = '0'
-        this.$refs.prev.style.transform = `scale(1) translateX(0)`
-        this.$refs.next.style.opacity = '0'
-        this.$refs.next.style.transform = `scale(1) translateX(0)`
-        next()
-      })
+    onSwiper(swiper) {
+      console.log(swiper)
+    },
+    onSlideChange() {
+      console.log('slide change')
     }
   },
-  mounted() {
-    this.slidePage()
-  }
+  mounted() {}
 }
 </script>
 

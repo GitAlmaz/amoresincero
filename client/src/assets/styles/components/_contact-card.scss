@@ -8,7 +8,7 @@
     font-weight: 400;
     color: #ffffff;
 		margin-bottom: 10px;
-		@include media(1367px) {
+		@include media(1550px) {
 			margin-bottom: 5px;
 		} 
   }
@@ -16,7 +16,7 @@
     font-size: 13px;
     color: #ffffff;
 		margin-bottom: 8px;
-		@include media(1367px) {
+		@include media(1550px) {
 			margin-bottom: 5px;
 		}
   }

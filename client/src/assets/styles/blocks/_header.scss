@@ -2,7 +2,7 @@
   padding-top: 30px;
   z-index: 5;
   position: relative;
-  @include media($smd) {
+  @include media(1550px) {
     padding-top: 10px;
   }
   &.active {
