@@ -1,5 +1,5 @@
 <template>
-  <section class="content-section content-section--about">
+  <section class="content-section content-section--about" id="section-about">
     <img
       src="@/assets/img/about-couple.png"
       alt=""

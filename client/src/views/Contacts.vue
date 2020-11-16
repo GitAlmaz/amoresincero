@@ -1,5 +1,5 @@
 <template>
-  <div class="content-section content-section--contacts">
+  <div class="content-section content-section--contacts" id="section-contacts">
     <h3>{{ 'Contacts_Title' | localize }}</h3>
     <div class="content-section__contacts-box">
       <div class="flex-col-5 content-section__map" id="map">

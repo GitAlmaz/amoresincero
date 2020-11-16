@@ -20,9 +20,12 @@
 	@include media($laptop) {
 		width: 80%;
 	}
+	@include media(1370px) {
+		padding: 31px 34px 31px 68px;
+	}
 	@include media($smd) {
 		padding: 0;
-		height: calc(100vh - 107px);
+		height: auto;
 		width: 100%;
 		background: none;
 	}

@@ -5,6 +5,13 @@
   @include media(1550px) {
     padding-top: 10px;
   }
+  @include media($smd) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(5px);
+  }
   &.active {
     .header__dropdown {
       overflow: visible;

@@ -1,5 +1,5 @@
 <template>
-  <section class="content-section content-section--womans">
+  <section class="content-section content-section--womans" id="section-womans">
     <img
       src="@/assets/img/womans-couple.png"
       alt=""

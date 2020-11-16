@@ -1,5 +1,5 @@
 <template>
-  <section class="content-section content-section--services">
+  <section class="content-section content-section--services" id="section-services">
     <h1>{{ 'Services_Title' | localize }}</h1>
     <div class="flex-row">
       <div class="flex-col-4">

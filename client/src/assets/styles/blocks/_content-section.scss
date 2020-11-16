@@ -2,10 +2,12 @@
   width: 100%;
   // padding: 0 45px;
   animation: apearing 0.5s ease-in backwards;
-
+  @include media(1370px) {
+    height: 100%;
+  }
   @include media($smd) {
-    height: calc(100vh - 107px);
-    padding: 0 15px 15px 15px;
+    min-height: 100vh;
+    padding: 30px 15px;
     min-width: 100vw;
     // margin-left: -15px;
     position: relative;
@@ -33,7 +35,7 @@
     @include media($smd) {
       height: 100%;
       margin-bottom: 0;
-      padding-top: 40px;
+      padding-top: 90px;
     }
     h1 {
       font-family: $font-second-regular;
@@ -153,6 +155,7 @@
     margin-bottom: 80px;
     @include media(1550px) {
       margin-bottom: 20px;
+      padding: 10px 0;
     }
     @include media($md) {
       flex-direction: column;
@@ -205,6 +208,10 @@
     }
   }
   &--home {
+    height: auto;
+    @include media($smd) {
+      height: calc(100vh - 107px);
+    }
     &::after {
       display: none;
     }
@@ -244,10 +251,14 @@
       left: 50%;
       transform: translateX(-45%);
       margin-left: -22%;
+      @include media(1370px) {
+        margin-left: -29%;
+      }
       @include media($smd) {
         width: 800px;
         height: 640px;
         margin-left: -10%;
+        margin-bottom: 70px;
       }
     }
   }
@@ -260,11 +271,15 @@
       bottom: 0;
       transform: translateX(-45%);
       margin-left: -22%;
+      @include media(1370px) {
+        margin-left: -26%;
+        margin-bottom: -2%;
+      }
       @include media($smd) {
-        margin-top: 4%;
         width: 800px;
         height: 600px;
-        margin-left: 14%;
+        margin-left: -7%;
+        margin-bottom: 30px;
       }
     }
   }
@@ -278,11 +293,15 @@
       bottom: 0;
       transform: translateX(-45%);
       margin-left: -24%;
+      @include media(1370px) {
+        margin-left: -28%;
+        margin-bottom: -3%;
+      }
       @include media($smd) {
         width: 550px;
         height: 750px;
-        bottom: -135px;
-        margin-left: -17%;
+        margin-left: -23%;
+        margin-bottom: 70px;
       }
     }
     // .content-inner {
@@ -302,6 +321,9 @@
       color: #ffffff;
       font-weight: 700;
       margin-bottom: 30px;
+      @include media(1370px) {
+        font-size: 25px;
+      }
       @include media($smd) {
         font-size: 20px;
         margin-bottom: 0;
@@ -388,7 +410,11 @@
       font-weight: 700;
       margin-bottom: 30px;
       @include media(1550px) {
+        font-size: 25px;
         margin-bottom: 10px;
+      }
+      @include media(1280px) {
+        margin-bottom: 0;
       }
     }
     h1 {

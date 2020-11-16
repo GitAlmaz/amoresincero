@@ -63,7 +63,15 @@
             </li>
           </ul>
         </div>
-          <Swiper  v-else >
+        <div class="main__mobile" v-else>
+          <Home />
+          <About />
+          <Womans />
+          <Mans />
+          <Services />
+          <Contacts />
+        </div>
+        <!-- <Swiper  v-else >
             <SwiperSlide>
               <Home />
             </SwiperSlide>
@@ -79,8 +87,7 @@
             <SwiperSlide>
               <Contacts />
             </SwiperSlide>
-          </Swiper>
-        
+          </Swiper> -->
         <Footer />
       </div>
     </main>
@@ -95,6 +102,7 @@ import Alert from '@/components/Alert'
 import { mapGetters } from 'vuex'
 import router from './router'
 import Home from '@/views/Home'
+import About from '@/views/About'
 import Womans from '@/views/Womans'
 import Mans from '@/views/Mans'
 import Services from '@/views/Services'
@@ -109,6 +117,7 @@ export default {
     Header,
     Footer,
     Home,
+    About,
     Womans,
     Mans,
     Services,
@@ -117,7 +126,7 @@ export default {
     SwiperSlide
   },
   data: () => ({
-    mobile: window.innerWidth < 560 ? true : false
+    mobile: window.innerWidth < 800 ? true : false
   }),
   computed: {
     ...mapGetters(['modalOpened'])

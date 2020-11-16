@@ -2,7 +2,14 @@
   <header class="header" :class="{ active: ddMenuOpened }">
     <div class="container">
       <div class="header__top">
-        <button @click.prevent="() => {toggleModal(true)}" class="btn btn--empty">
+        <button
+          @click.prevent="
+            () => {
+              toggleModal(true)
+            }
+          "
+          class="btn btn--empty"
+        >
           {{ 'Header_Button' | localize }}
         </button>
         <div class="header__lang">
@@ -11,14 +18,24 @@
       </div>
 
       <div class="header__menu">
-        <router-link to="/" class="header__logo">
+
+        <router-link to="/" class="header__logo" v-if="!mobile">
           <img src="@/assets/img/logo.png" alt="logo" />
-          <img src="@/assets/img/logo_small.png" alt="logo" />
         </router-link>
+        <a href="#section-home" class="header__logo" @click.prevent="smoothScroll" v-else>
+          <img src="@/assets/img/logo.png" alt="logo" />
+        </a>
         <div class="header__navigation">
           <Navigation />
         </div>
-        <button @click.prevent="() => {toggleModal(true)}" class="btn btn--empty">
+        <button
+          @click.prevent="
+            () => {
+              toggleModal(true)
+            }
+          "
+          class="btn btn--empty"
+        >
           {{ 'Header_Button' | localize }}
         </button>
         <div class="header__menu-btn" @click="triggerMenu">
@@ -30,7 +47,24 @@
 
       <div class="header__dropdown">
         <div>
-          <Navigation :customFunc="toggleMenu" />
+          <Navigation :customFunc="toggleMenu" v-if="!mobile" />
+          <ul class="navigation" v-else>
+            <li>
+              <a href="#section-about" @click.prevent="smoothScroll">{{ 'Header_About' | localize }}</a>
+            </li>
+            <li>
+              <a href="#section-mans" @click.prevent="smoothScroll">{{ 'Header_Mans' | localize }}</a>
+            </li>
+            <li>
+              <a href="#section-womans" @click.prevent="smoothScroll">{{ 'Header_Womans' | localize }}</a>
+            </li>
+            <li>
+              <a href="#section-services" @click.prevent="smoothScroll">{{ 'Header_Services' | localize }}</a>
+            </li>
+            <li>
+              <a href="#section-contacts" @click.prevent="smoothScroll">{{ 'Header_Contacts' | localize }}</a>
+            </li>
+          </ul>
         </div>
         <span @click="triggerMenu"></span>
       </div>
@@ -72,7 +106,8 @@ export default {
           img: 'spain.svg',
           locale: 'es-ES'
         }
-      ]
+      ],
+      mobile: window.innerWidth < 800 ? true : false
     }
   },
   computed: {
@@ -88,6 +123,16 @@ export default {
     },
     triggerMenu(value) {
       this.toggleMenu(!this.ddMenuOpened)
+    },
+    smoothScroll(e) {
+      const scrollTo = e.currentTarget.getAttribute('href')
+      const fromTop = document.querySelector(scrollTo).getBoundingClientRect().top
+      const main = document.querySelector('.main')
+      main.scrollBy({
+        top: fromTop - 100,
+        behavior: 'smooth'
+      })
+      this.toggleMenu(false)
     }
   }
 }

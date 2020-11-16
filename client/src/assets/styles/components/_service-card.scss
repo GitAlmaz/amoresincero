@@ -137,7 +137,6 @@
 			background: rgba(255, 255, 255, 0.85);
 		}
     @include media($smd) {
-      max-height: 200px;
       overflow-y: auto;
       padding-right: 8px;
     }
