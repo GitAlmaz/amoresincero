@@ -63,7 +63,7 @@
             </li>
           </ul>
         </div>
-        <div v-else class="main__mobile">
+        <div v-else class="main__mobile" ref="mobileSwiper">
           <Home />
           <About />
           <Womans />
@@ -71,8 +71,8 @@
           <Services />
           <Contacts />
         </div>
-        <Footer />
       </div>
+      <Footer />
     </main>
   </div>
 </template>
@@ -82,7 +82,7 @@ import Header from '@/components/blocks/Header'
 import Footer from '@/components/blocks/Footer'
 import Modal from '@/components/Modal'
 import Alert from '@/components/Alert'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import router from './router'
 import Home from '@/views/Home'
 import About from '@/views/About'
@@ -108,7 +108,10 @@ export default {
     mobile: window.innerWidth < 800 ? true : false,
     windowWidth: window.innerWidth,
     page: 0,
-    maxPage: 5
+    maxPage: 5,
+    touch: false,
+    sX: 0,
+    fX: 0
   }),
   computed: {
     ...mapGetters(['modalOpened', 'appPage'])
@@ -122,52 +125,35 @@ export default {
     },
     appPage() {
       this.page = this.appPage
-      console.log(this.page);
-      document.querySelector('.main__mobile').removeEventListener('scroll', () => {
-        this.swipePage()
-      })
-      document.querySelector('.main__mobile').scrollTo({
-        left: this.windowWidth * this.page
-      })
-      setTimeout(() => {
-        this.initSwipe()
-      }, 0);
+      this.toPage(this.page)
     }
   },
   methods: {
-    swipePage(target) {
-      const scrollLeft = target.scrollLeft
-      const curPage = Math.round(scrollLeft / this.windowWidth) || 0
-      if (this.page !== curPage) {
-        target.scrollTo({
-          left: this.windowWidth * curPage,
-          behavior: 'smooth'
-        })
-        target.style.overflow = 'hidden'
-        this.page = curPage
-      } else {
-        setTimeout(() => {
-          target.scrollTo({
-            left: this.windowWidth * curPage,
-            behavior: 'smooth'
-          })
-          target.style.overflow = 'hidden'
-          this.page = curPage
-        }, 400)
-      }
-      setTimeout(() => {
-        target.style.overflow = 'auto'
-      }, 800)
+    ...mapMutations(['changePage']),
+    toPage(page) {
+      this.$refs.mobileSwiper.style = `transform: translateX(-${this.windowWidth * page}px)`
     },
-    initSwipe() {
-      const target = document.querySelector('.main__mobile')
-      target.addEventListener('scroll', () => {
-        this.swipePage(target)
+    swipeInit() {
+      this.$refs.mobileSwiper.addEventListener('touchstart', e => this.sX = e.touches[0].clientX)
+      this.$refs.mobileSwiper.addEventListener('touchend', e => {
+        if (this.fX - this.sX > 150 && this.page !== 0) {
+          this.page--
+          this.changePage(this.page)
+          return false
+        }
+        if (this.sX - this.fX > 150 && this.page !== this.maxPage) {
+          this.page++
+          this.changePage(this.page)
+          return false
+        }
       })
+
+      this.$refs.mobileSwiper.addEventListener('touchmove', e => this.fX = e.touches[0].clientX)
+
     }
   },
   mounted() {
-    this.initSwipe()
+    this.swipeInit()
   }
 }
 </script>
@@ -214,5 +200,8 @@ export default {
       }
     }
   }
+}
+.main__mobile {
+  transition: .2s ease-in;
 }
 </style>

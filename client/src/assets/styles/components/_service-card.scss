@@ -118,6 +118,9 @@
       max-height: 200px;
       overflow-y: auto;
     }
+    @include media(320px) {
+      max-height: 150px;
+    }
     /* width */
 		&::-webkit-scrollbar {
 			width: 8px;

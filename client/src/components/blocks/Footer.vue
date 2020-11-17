@@ -5,7 +5,24 @@
         Брачное агентство "Amore Sincero" ©2015-2020. Все права защищены.
       </div>
       <div class="footer__navigation">
-        <Navigation />
+        <Navigation v-if="!mobile" />
+        <ul class="navigation" v-else>
+            <li>
+              <a href="#" data-page="1" @click.prevent="toPage">{{ 'Header_About' | localize }}</a>
+            </li>
+            <li>
+              <a href="#" data-page="2" @click.prevent="toPage">{{ 'Header_Mans' | localize }}</a>
+            </li>
+            <li>
+              <a href="#" data-page="3" @click.prevent="toPage">{{ 'Header_Womans' | localize }}</a>
+            </li>
+            <li>
+              <a href="#" data-page="4" @click.prevent="toPage">{{ 'Header_Services' | localize }}</a>
+            </li>
+            <li>
+              <a href="#" data-page="5" @click.prevent="toPage">{{ 'Header_Contacts' | localize }}</a>
+            </li>
+          </ul>
       </div>
       <div class="footer__lang">
         <Languages />
@@ -100,16 +117,21 @@ export default {
             href: ''
           }
         ]
-      }
+      },
+      mobile: window.innerWidth < 800 ? true : false
     }
   },
   methods: {
-    ...mapMutations(['changeLocale']),
+    ...mapMutations(['changeLocale', 'changePage']),
     changeLang(e) {
       const id = parseInt(e.currentTarget.dataset.id)
       const locale = e.currentTarget.dataset.locale
       this.langSelected = id
       this.changeLocale(locale)
+    },
+    toPage(e) {
+      const page = +e.currentTarget.dataset.page
+      this.changePage(page)
     }
   }
 }

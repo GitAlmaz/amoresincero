@@ -25,10 +25,10 @@
 	}
 	@include media($smd) {
 		padding: 0;
-		padding-top: 90px;
-		height: auto;
+		height: 100%;
 		width: 100%;
 		background: none;
+		padding-bottom: 10px;
 	}
 	&__slot-text {
 		width: 100%;
@@ -38,7 +38,6 @@
 		padding-right: 34px;
 		@include media($smd) {
 			padding-right: 14px;
-			max-height: 74vh;
 		}
 		p {
 			text-align: justify;
