@@ -63,7 +63,7 @@
             </li>
           </ul>
         </div>
-        <div class="main__mobile" v-else>
+        <div v-else class="main__mobile">
           <Home />
           <About />
           <Womans />
@@ -71,23 +71,6 @@
           <Services />
           <Contacts />
         </div>
-        <!-- <Swiper  v-else >
-            <SwiperSlide>
-              <Home />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Womans />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Mans />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Services />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Contacts />
-            </SwiperSlide>
-          </Swiper> -->
         <Footer />
       </div>
     </main>
@@ -107,8 +90,6 @@ import Womans from '@/views/Womans'
 import Mans from '@/views/Mans'
 import Services from '@/views/Services'
 import Contacts from '@/views/Contacts'
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/swiper.scss'
 
 export default {
   components: {
@@ -121,15 +102,16 @@ export default {
     Womans,
     Mans,
     Services,
-    Contacts,
-    Swiper,
-    SwiperSlide
+    Contacts
   },
   data: () => ({
-    mobile: window.innerWidth < 800 ? true : false
+    mobile: window.innerWidth < 800 ? true : false,
+    windowWidth: window.innerWidth,
+    page: 0,
+    maxPage: 5
   }),
   computed: {
-    ...mapGetters(['modalOpened'])
+    ...mapGetters(['modalOpened', 'appPage'])
   },
   watch: {
     modalOpened() {
@@ -137,17 +119,56 @@ export default {
       this.modalOpened
         ? ($body.style.overflow = 'hidden')
         : ($body.style.overflow = 'auto')
+    },
+    appPage() {
+      this.page = this.appPage
+      console.log(this.page);
+      document.querySelector('.main__mobile').removeEventListener('scroll', () => {
+        this.swipePage()
+      })
+      document.querySelector('.main__mobile').scrollTo({
+        left: this.windowWidth * this.page
+      })
+      setTimeout(() => {
+        this.initSwipe()
+      }, 0);
     }
   },
   methods: {
-    onSwiper(swiper) {
-      console.log(swiper)
+    swipePage(target) {
+      const scrollLeft = target.scrollLeft
+      const curPage = Math.round(scrollLeft / this.windowWidth) || 0
+      if (this.page !== curPage) {
+        target.scrollTo({
+          left: this.windowWidth * curPage,
+          behavior: 'smooth'
+        })
+        target.style.overflow = 'hidden'
+        this.page = curPage
+      } else {
+        setTimeout(() => {
+          target.scrollTo({
+            left: this.windowWidth * curPage,
+            behavior: 'smooth'
+          })
+          target.style.overflow = 'hidden'
+          this.page = curPage
+        }, 400)
+      }
+      setTimeout(() => {
+        target.style.overflow = 'auto'
+      }, 800)
     },
-    onSlideChange() {
-      console.log('slide change')
+    initSwipe() {
+      const target = document.querySelector('.main__mobile')
+      target.addEventListener('scroll', () => {
+        this.swipePage(target)
+      })
     }
   },
-  mounted() {}
+  mounted() {
+    this.initSwipe()
+  }
 }
 </script>
 
@@ -192,26 +213,6 @@ export default {
         right: 5px;
       }
     }
-  }
-}
-.intersection {
-  position: absolute;
-  left: 0;
-  width: 100vw;
-  height: 10px;
-  background: transparent;
-  &_viewer {
-    position: fixed;
-    bottom: 0;
-    height: 10px;
-    width: 100vw;
-    background: transparent;
-  }
-  &_top {
-    top: -15px;
-  }
-  &_bottom {
-    bottom: -15px;
   }
 }
 </style>

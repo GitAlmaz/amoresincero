@@ -6,7 +6,8 @@ html {
 	background-color: $cl-dark-blue;
 	background-image: url('assets/img/bg-image.jpg') no-repeat;
   background-size: cover;
-  background-position: center;
+	background-position: center;
+	scroll-behavior: smooth;
 }
 html,
 body {

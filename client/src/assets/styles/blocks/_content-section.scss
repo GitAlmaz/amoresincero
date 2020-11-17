@@ -10,6 +10,7 @@
     padding: 30px 15px;
     min-width: 100vw;
     // margin-left: -15px;
+    overflow-x: hidden;
     position: relative;
     &::after {
       // content: '';
@@ -75,7 +76,11 @@
       z-index: 1;
       margin-bottom: 20px;
       padding: 0 4px;
-      background: linear-gradient(90deg, rgba(30,30,30,.5) 0%, rgba(0,0,0,0) 80%);
+      background: linear-gradient(
+        90deg,
+        rgba(30, 30, 30, 0.5) 0%,
+        rgba(0, 0, 0, 0) 80%
+      );
       border-radius: 5px;
       @include media(1550px) {
         font-size: 2rem;
@@ -111,10 +116,20 @@
       @include media($smd) {
         display: flex;
         margin-top: auto;
+        bottom: 0;
       }
       p {
         font-size: 25px;
-        background: -webkit-gradient(linear,left top,right top,color-stop(0, #2d2d2d),color-stop(0.3, #2d2d2d),color-stop(0.4, white),color-stop(0.6, #2d2d2d),color-stop(1, #2d2d2d)); 
+        background: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          color-stop(0, #2d2d2d),
+          color-stop(0.3, #2d2d2d),
+          color-stop(0.4, white),
+          color-stop(0.6, #2d2d2d),
+          color-stop(1, #2d2d2d)
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         animation: slidetounlock 2.5s linear infinite;
@@ -137,7 +152,6 @@
         opacity: 0.2;
       }
     }
-    
   }
   &__contacts-box {
     width: 100%;
@@ -257,8 +271,7 @@
       @include media($smd) {
         width: 800px;
         height: 640px;
-        margin-left: -10%;
-        margin-bottom: 70px;
+        margin-left: 0;
       }
     }
   }
@@ -278,8 +291,8 @@
       @include media($smd) {
         width: 800px;
         height: 600px;
-        margin-left: -7%;
-        margin-bottom: 30px;
+        margin-left: 0;
+        margin-bottom: 0;
       }
     }
   }
@@ -300,8 +313,8 @@
       @include media($smd) {
         width: 550px;
         height: 750px;
-        margin-left: -23%;
-        margin-bottom: 70px;
+        margin-left: -36%;
+        margin-bottom: 0;
       }
     }
     // .content-inner {
@@ -313,8 +326,9 @@
     margin: 0 auto;
     @include media($smd) {
       overflow-y: auto;
+      padding-top: 110px;
     }
-    
+
     h1 {
       text-align: center;
       font-size: 30px;
@@ -402,6 +416,9 @@
     }
     @include media($smd) {
       margin: 0 auto;
+      overflow-y: auto;
+      padding-top: 110px;
+      max-height: 70vh;
     }
     h3 {
       text-align: center;
@@ -483,7 +500,7 @@
   0% {
     background-position: -130px 0;
   }
-  100%{
+  100% {
     background-position: 130px 0;
   }
 }

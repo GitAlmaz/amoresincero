@@ -9,7 +9,8 @@ export default new Vuex.Store({
       locale: 'ru-RU',
       modalOpened: false,
       ddMenuOpened: false,
-      alertShown: false
+      alertShown: false,
+      page: 0
     }
   },
   mutations: {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     },
     toggleMenu(state, payload) {
       return (state.info.ddMenuOpened = payload)
+    },
+    changePage(state, payload) {
+      return (state.info.page = payload)
     }
   },
   actions: {},
@@ -42,6 +46,9 @@ export default new Vuex.Store({
     },
     ddMenuOpened(state) {
       return state.info.ddMenuOpened
+    },
+    appPage(state) {
+      return state.info.page
     }
   },
   modules: {}

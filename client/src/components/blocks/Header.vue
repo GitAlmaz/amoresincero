@@ -22,7 +22,7 @@
         <router-link to="/" class="header__logo" v-if="!mobile">
           <img src="@/assets/img/logo.png" alt="logo" />
         </router-link>
-        <a href="#section-home" class="header__logo" @click.prevent="smoothScroll" v-else>
+        <a href="#" class="header__logo" data-page="0" @click.prevent="toPage" v-else>
           <img src="@/assets/img/logo.png" alt="logo" />
         </a>
         <div class="header__navigation">
@@ -50,19 +50,19 @@
           <Navigation :customFunc="toggleMenu" v-if="!mobile" />
           <ul class="navigation" v-else>
             <li>
-              <a href="#section-about" @click.prevent="smoothScroll">{{ 'Header_About' | localize }}</a>
+              <a href="#" data-page="1" @click.prevent="toPage">{{ 'Header_About' | localize }}</a>
             </li>
             <li>
-              <a href="#section-mans" @click.prevent="smoothScroll">{{ 'Header_Mans' | localize }}</a>
+              <a href="#" data-page="2" @click.prevent="toPage">{{ 'Header_Mans' | localize }}</a>
             </li>
             <li>
-              <a href="#section-womans" @click.prevent="smoothScroll">{{ 'Header_Womans' | localize }}</a>
+              <a href="#" data-page="3" @click.prevent="toPage">{{ 'Header_Womans' | localize }}</a>
             </li>
             <li>
-              <a href="#section-services" @click.prevent="smoothScroll">{{ 'Header_Services' | localize }}</a>
+              <a href="#" data-page="4" @click.prevent="toPage">{{ 'Header_Services' | localize }}</a>
             </li>
             <li>
-              <a href="#section-contacts" @click.prevent="smoothScroll">{{ 'Header_Contacts' | localize }}</a>
+              <a href="#" data-page="5" @click.prevent="toPage">{{ 'Header_Contacts' | localize }}</a>
             </li>
           </ul>
         </div>
@@ -114,7 +114,7 @@ export default {
     ...mapGetters(['ddMenuOpened'])
   },
   methods: {
-    ...mapMutations(['changeLocale', 'toggleModal', 'toggleMenu']),
+    ...mapMutations(['changeLocale', 'toggleModal', 'toggleMenu', 'changePage']),
     changeLang(e) {
       const id = parseInt(e.currentTarget.dataset.id)
       const locale = e.currentTarget.dataset.locale
@@ -124,15 +124,9 @@ export default {
     triggerMenu(value) {
       this.toggleMenu(!this.ddMenuOpened)
     },
-    smoothScroll(e) {
-      const scrollTo = e.currentTarget.getAttribute('href')
-      const fromTop = document.querySelector(scrollTo).getBoundingClientRect().top
-      const main = document.querySelector('.main')
-      main.scrollBy({
-        top: fromTop - 100,
-        behavior: 'smooth'
-      })
-      this.toggleMenu(false)
+    toPage(e) {
+      const page = +e.currentTarget.dataset.page
+      this.changePage(page)
     }
   }
 }

@@ -9,13 +9,13 @@
 			<!-- <a href="">
 				<img src="@/assets/img/icons/move-down.png" alt="" />
 			</a> -->
-			<!-- <div> -->
+			<div>
 				<!-- <img src="@/assets/img/icons/left-arrow.svg" alt="" class="left"> -->
-				<!-- <p>
+				<p>
 					{{ 'Hero_Swipe_Pages' | localize }}
-				</p> -->
+				</p>
 				<!-- <img src="@/assets/img/icons/right-arrow.svg" alt="" class="right"> -->
-			<!-- </div> -->
+			</div>
 		</div>
 	</section>
 </template>

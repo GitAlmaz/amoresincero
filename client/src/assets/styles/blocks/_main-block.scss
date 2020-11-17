@@ -15,6 +15,7 @@
     height: 100vh;
     @include media($smd) {
       margin: 0 0 auto 0;
+      overflow-y: auto;
       // max-height: calc(100vh - 107px);
     }
     .container {
@@ -22,7 +23,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      @include media($smd) {
+        padding: 0;
+      }
     }
+  }
+  &__mobile {
+    display: flex;
+    overflow-x: scroll;
   }
   &__pager {
     width: 59px;

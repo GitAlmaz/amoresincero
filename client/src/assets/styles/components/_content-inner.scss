@@ -25,6 +25,7 @@
 	}
 	@include media($smd) {
 		padding: 0;
+		padding-top: 90px;
 		height: auto;
 		width: 100%;
 		background: none;
@@ -37,7 +38,7 @@
 		padding-right: 34px;
 		@include media($smd) {
 			padding-right: 14px;
-			max-height: 90%;
+			max-height: 74vh;
 		}
 		p {
 			text-align: justify;
