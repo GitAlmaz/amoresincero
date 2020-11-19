@@ -1,5 +1,5 @@
 <template>
-	<section class="content-section content-section--home" id="section-home">
+	<section class="content-section content-section--home active" id="section-home">
 		<img src="@/assets/img/home-couple.png" alt="" />
 		<img src="@/assets/img/home-couple-mobile.png" alt="" />
 		<div class="content-section__hero">

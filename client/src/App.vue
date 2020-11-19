@@ -111,7 +111,8 @@ export default {
     maxPage: 5,
     touch: false,
     sX: 0,
-    fX: 0
+    fX: 0,
+    flag: true
   }),
   computed: {
     ...mapGetters(['modalOpened', 'appPage'])
@@ -131,24 +132,57 @@ export default {
   methods: {
     ...mapMutations(['changePage']),
     toPage(page) {
-      this.$refs.mobileSwiper.style = `transform: translateX(-${this.windowWidth * page}px)`
+      const sections = [...this.$refs.mobileSwiper.querySelectorAll('.content-section')]
+      console.log(this.windowWidth * page);
+      this.$refs.mobileSwiper.style.transform = `translateX(-${this.windowWidth * page}px)`
+      sections.map(i => i.classList.remove('active'))
+      sections[page].classList.add('active')
     },
     swipeInit() {
       this.$refs.mobileSwiper.addEventListener('touchstart', e => this.sX = e.touches[0].clientX)
-      this.$refs.mobileSwiper.addEventListener('touchend', e => {
-        if (this.fX - this.sX > 150 && this.page !== 0) {
-          this.page--
-          this.changePage(this.page)
-          return false
-        }
-        if (this.sX - this.fX > 150 && this.page !== this.maxPage) {
-          this.page++
-          this.changePage(this.page)
-          return false
+      this.$refs.mobileSwiper.addEventListener('touchend', e => this.flag = true)
+
+      this.$refs.mobileSwiper.addEventListener('touchmove', e => {
+        if (this.flag) {
+          this.fX = e.touches[0].clientX
+          if (this.fX - this.sX > 75) {
+            if (this.page !== 0) {
+              this.flag = false
+              this.page--
+              this.changePage(this.page)
+              return false
+            }
+            else {
+              this.flag = false
+              this.page = 5
+              this.$refs.mobileSwiper.style.transition = '0.3s cubic-bezier(0.000, 1.650, 0.000, 1.650)'
+              this.changePage(this.page)
+              setTimeout(() => {
+                this.$refs.mobileSwiper.style.transition = '.2s ease-in-out'
+              }, 200)
+              return false
+            }
+          }
+          if (this.sX - this.fX > 75) {
+            if (this.page !== this.maxPage) {
+              this.flag = false
+              this.page++
+              this.changePage(this.page)
+              return false
+            }
+            else {
+              this.flag = false
+              this.page = 0
+              this.$refs.mobileSwiper.style.transition = '0.3s cubic-bezier(0.000, 1.650, 0.000, 1.650)'
+              this.changePage(this.page)
+              setTimeout(() => {
+                this.$refs.mobileSwiper.style.transition = '.2s ease-in-out'
+              }, 200)
+              return false
+            }
+          }
         }
       })
-
-      this.$refs.mobileSwiper.addEventListener('touchmove', e => this.fX = e.touches[0].clientX)
 
     }
   },
@@ -202,6 +236,6 @@ export default {
   }
 }
 .main__mobile {
-  transition: .2s ease-in;
+  transition: .2s ease-in-out;
 }
 </style>

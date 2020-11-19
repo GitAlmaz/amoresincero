@@ -2,6 +2,7 @@
   width: 100%;
   // padding: 0 45px;
   animation: apearing 0.5s ease-in backwards;
+
   @include media(1370px) {
     height: 100%;
   }
@@ -11,6 +12,11 @@
     min-width: 100vw;
     overflow: hidden;
     position: relative;
+    transition: 2s;
+    opacity: 0;
+    &.active {
+      opacity: 1;
+    }
     &::after {
       // content: '';
       width: 100vw;
@@ -268,7 +274,7 @@
       }
       @include media($smd) {
         width: 800px;
-        height: 640px;
+        height: 540px;
         margin-left: 0;
       }
     }
@@ -288,7 +294,7 @@
       }
       @include media($smd) {
         width: 800px;
-        height: 600px;
+        height: 540px;
         margin-left: 0;
         margin-bottom: 0;
       }
@@ -310,7 +316,7 @@
       }
       @include media($smd) {
         width: 550px;
-        height: 750px;
+        height: 570px;
         margin-left: -36%;
         margin-bottom: -10%;
       }
