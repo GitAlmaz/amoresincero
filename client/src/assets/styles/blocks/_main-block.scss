@@ -18,7 +18,9 @@
     overflow: auto;
   }
   &__content {
+    height: 100%;
     @include media($smd) {
+      height: auto;
       margin: 0 0 auto 0;
       overflow: hidden;
     }

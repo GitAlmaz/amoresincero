@@ -53,10 +53,10 @@
               <a href="#" data-page="1" @click.prevent="toPage">{{ 'Header_About' | localize }}</a>
             </li>
             <li>
-              <a href="#" data-page="2" @click.prevent="toPage">{{ 'Header_Mans' | localize }}</a>
+              <a href="#" data-page="2" @click.prevent="toPage">{{ 'Header_Womans' | localize }}</a>
             </li>
             <li>
-              <a href="#" data-page="3" @click.prevent="toPage">{{ 'Header_Womans' | localize }}</a>
+              <a href="#" data-page="3" @click.prevent="toPage">{{ 'Header_Mans' | localize }}</a>
             </li>
             <li>
               <a href="#" data-page="4" @click.prevent="toPage">{{ 'Header_Services' | localize }}</a>
@@ -127,6 +127,7 @@ export default {
     toPage(e) {
       const page = +e.currentTarget.dataset.page
       this.changePage(page)
+      this.toggleMenu(false)
     }
   }
 }

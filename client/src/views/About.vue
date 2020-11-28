@@ -8,8 +8,12 @@
     <ContentInner>
       <template slot="text">
         <h1>{{ 'About_Title' | localize }}</h1>
-        <h3>{{ 'About_Subtitle' | localize }}</h3>
-        <p v-for="(item, index) of arrOfTexts" :key="index">
+        <h3>{{ 'About_Subtitle1' | localize }}</h3>
+        <p v-for="(item, index) of arrOfTexts_one" :key="index">
+          {{ item }}
+        </p>
+        <h3>{{ 'About_Subtitle2' | localize }}</h3>
+        <p v-for="(item, index) of arrOfTexts_two" :key="index">
           {{ item }}
         </p>
       </template>
@@ -32,7 +36,8 @@ export default {
   data() {
     return {
       text: '',
-      arrOfTexts: []
+      arrOfTexts_one: [],
+      arrOfTexts_two: [],
     }
   },
   computed: {
@@ -46,9 +51,13 @@ export default {
   methods: {
     ...mapMutations(['toggleModal']),
     changeText() {
+      this.arrOfTexts_one = []
+      this.arrOfTexts_two = []
       this.text = localizeFilter('About_Text')
       const arr = this.text.split('\n').filter(item => item != '')
-      this.arrOfTexts = arr
+      for (let i = 0; i < arr.length; i++) {
+        i < 2 ? this.arrOfTexts_one.push(arr[i]) : this.arrOfTexts_two.push(arr[i])
+      }
     }
   },
   mounted() {
