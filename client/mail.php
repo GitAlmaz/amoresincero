@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 
-$to = "example@gmail.com";
+$to = "Amoresincero1@yandex.ru";
 $email = trim($_POST['email']);
 $name = trim($_POST['name']);
 
