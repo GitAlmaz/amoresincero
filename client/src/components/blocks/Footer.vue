@@ -179,6 +179,8 @@ export default {
     color: #dddddd;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     order: 1;
+    visibility: hidden;
+    display: none;
   }
   &__navigation {
     width: 65%;

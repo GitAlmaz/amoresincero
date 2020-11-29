@@ -75,7 +75,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0.25;
+        opacity: 0.5;
         transition: 0.2s;
         &.active,
         &:hover {

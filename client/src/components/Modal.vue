@@ -176,6 +176,7 @@ export default {
           },
           body: JSON.stringify(this.form)
         })
+        console.log(status);
         if (res.status === 200) {
           this.form = {
             name: '',

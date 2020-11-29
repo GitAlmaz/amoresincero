@@ -133,12 +133,12 @@ export default {
     ...mapMutations(['changePage']),
     toPage(page) {
       const sections = [...this.$refs.mobileSwiper.querySelectorAll('.content-section')]
-      console.log(this.windowWidth * page);
       this.$refs.mobileSwiper.style.transform = `translateX(-${this.windowWidth * page}px)`
       sections.map(i => i.classList.remove('active'))
       sections[page].classList.add('active')
     },
     swipeInit() {
+      if (!this.mobile) return
       this.$refs.mobileSwiper.addEventListener('touchstart', e => this.sX = e.touches[0].clientX)
       this.$refs.mobileSwiper.addEventListener('touchend', e => this.flag = true)
 
